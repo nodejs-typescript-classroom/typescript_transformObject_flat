@@ -2,7 +2,7 @@ import { keyStringValue, transformObject } from "./transformToPlat";
 
 describe('transformToPlat', ()=>{
   test('example1', () => {
-    let input = {
+    const input = {
       "container": "name1",
       "object": "obj",
       "test": {
@@ -13,7 +13,7 @@ describe('transformToPlat', ()=>{
         }
       }
     };
-    let result: keyStringValue = {}
+    const result: keyStringValue = {}
     transformObject(input, "", result)
     expect(result).toEqual({
       "container": "name1",
@@ -24,7 +24,7 @@ describe('transformToPlat', ()=>{
     })
   });
   test('example2', () => {
-    let input = {
+    const input = {
       "container": "name1",
       "object": "obj",
       "test": {
@@ -44,9 +44,8 @@ describe('transformToPlat', ()=>{
           }
         }
       }
-
     };
-    let result: keyStringValue = {}
+    const result: keyStringValue = {}
     transformObject(input, "", result)
     expect(result).toEqual({
       "container": "name1",
@@ -62,8 +61,8 @@ describe('transformToPlat', ()=>{
   });
 
   test('example3', () => {
-    let result: keyStringValue = {}
-    let input = {
+    const result: keyStringValue = {}
+    const input = {
       "container": {
         "name": "container_api_server",
         "ip": "127.0.0.1",
@@ -92,7 +91,7 @@ describe('transformToPlat', ()=>{
       "status": "health"
     }
     transformObject(input, "", result)
-    let expectResult: keyStringValue = {
+    const expectResult: keyStringValue = {
       "container.name": "container_api_server",
       "container.ip": "127.0.0.1",
       "container.port": "3000",
